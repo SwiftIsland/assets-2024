@@ -1,0 +1,68 @@
+[
+    {
+        "id": "7a47eab6-d034-40a3-8a16-ea7e21e8c8ea",
+        "imageName": "seal1",
+        "name": "Arctic Wanderer",
+        "description": "Arctic Wanderer is the calm and introspective type. Known for its solitary adventures in the icy waters, it loves exploring remote corners. Despite its cool demeanor, it’s always ready to help guide lost seals back to warmer waters."
+    },
+    {
+        "id": "fdc53a4b-19b5-4be0-89ad-9f39b84e66af",
+        "imageName": "seal2",
+        "name": "Pacific Guardian",
+        "description": "Pacific Guardian is the group’s protector. Always on alert, it’s the first to notice when something’s amiss. With a strong sense of responsibility, this seal is known for leading the way during long migrations, ensuring everyone stays safe."
+    },
+    {
+        "id": "fffd15e2-e038-4f8f-967a-4f3b7f687d64",
+        "imageName": "seal3",
+        "name": "Grey Ghost",
+        "description": "Grey Ghost is a bit of a trickster, famous for its sudden appearances and disappearances in the misty waters. It’s playful and loves a good game of hide and seek, often confusing its friends with swift and sneaky moves."
+    },
+    {
+        "id": "76b6b12f-671a-47cf-bbf8-205657e22d57",
+        "imageName": "seal4",
+        "name": "Ocean Explorer",
+        "description": "Ocean Explorer has an insatiable curiosity. Whether diving into deep trenches or inspecting coral reefs, this seal is always eager to discover new things. Its tales of underwater adventures are legendary among the seal community."
+    },
+    {
+        "id": "66fa708d-84be-4693-b42a-8808915d003d",
+        "imageName": "seal5",
+        "name": "Coral Watcher",
+        "description": "Coral Watcher has a gentle and nurturing spirit. Known for spending time in colorful coral gardens, it’s a guardian of the delicate ecosystems. This seal often takes younger seals on tours, teaching them about the wonders of the reef."
+    },
+    {
+        "id": "d3cbfa7e-6a2a-4e96-9aef-66a1b3951c3d",
+        "imageName": "seal6",
+        "name": "Frost Crawler",
+        "description": "Frost Crawler is the toughest of the group, thriving in the coldest conditions. With its thick fur and endurance, it’s always up for a challenge. Its resilience and determination make it a natural leader in harsh environments."
+    },
+    {
+        "id": "4b3de41e-7cb8-4f92-8e8d-839ff8195d70",
+        "imageName": "seal7",
+        "name": "Tidal Ranger",
+        "description": "Tidal Ranger is an expert in navigating the tricky tides. It’s always timing its movements with precision, avoiding strong currents and dangerous riptides. Known for its strategic thinking, this seal often helps others during tricky crossings."
+    },
+    {
+        "id": "88df9f9e-1077-49be-a536-2d0b8d8e7b8b",
+        "imageName": "seal8",
+        "name": "Sandy Nomad",
+        "description": "Sandy Nomad is a free spirit, happiest basking on sunlit shores. It’s known for traveling between sandy beaches, often making friends along the way. Despite its laid-back attitude, it has a wealth of knowledge about the best sunbathing spots."
+    },
+    {
+        "id": "9210f5e4-f6e4-4d32-8d18-d9a2e23d5a70",
+        "imageName": "island1",
+        "name": "Dunes",
+        "description": "This image captures the expansive dunes of Texel. The rolling sand hills, covered in patches of hardy grasses, create a peaceful and serene landscape. The dunes are a haven for diverse wildlife and offer stunning views of the island’s coastline."
+    },
+    {
+        "id": "e6ec0f99-2f7e-4c08-91b4-d299f10d58f4",
+        "imageName": "island2",
+        "name": "Lighthouse 1",
+        "description": "The iconic red lighthouse of Texel stands tall against the northern horizon. This historic structure has guided ships safely for over a century. Surrounded by wild beaches, it’s a beloved landmark for both locals and visitors alike."
+    },
+    {
+        "id": "7aef730e-3a3c-47b8-87f7-45e54a301cf7",
+        "imageName": "island3",
+        "name": "Lighthouse 2",
+        "description": "A different angle of the Texel lighthouse, this view showcases its majestic presence against a stunning sunset. The dramatic lighting highlights the rugged beauty of the island’s northern coast, making it a perfect spot for photographers."
+    }
+]

@@ -1,0 +1,318 @@
+@Tutorial(time: 120) {
+    @Intro(title: "Swift Island TabletopKit Workshop") {
+        We'll explore what is TabletopKit and how to implement the beginning of a game.
+    }
+    
+    @XcodeRequirement(title: "Xcode 16.1 Beta", destination: "https://developer.apple.com/download/")
+    
+    @Section(title: "Create the Table") {
+        @ContentAndMedia {
+            The table is the base for everything. We'll start here and build up.
+            
+            @Image(source: 1-5-BoardOnly, alt: "The board in a volume")
+        }
+        
+        @Steps {
+            @Step {
+                Create a filed named `GameEquipment`.
+                
+                All the equipment is going to go here, rather than in an individual file to make this easier to follow.
+            }
+            
+            @Step {
+                Creat a `Table`.
+                
+                @Code(name: "GameEquipment.swift", file: "1-GameEquipment.swift")
+            }
+            
+            @Step {
+                Create a `Board`.
+                
+                @Code(name: "GameEquipment.swift", file: "1-GameEquipment-Board.swift")
+            }
+            
+            @Step {
+                Render the main game board from a `usda` scene. 
+                
+                Replace the entity `Beginning` with `static_scene`, and add a constant called `rootOffset` and apply it to the scene before adding it to the `RealityView`.
+                
+                @Code(name: "GameView.swift", file: "1-GameView.swift", previousFile: "0-GameView.swift")
+            }
+            
+            @Step {
+                ✅ Run the project!
+                
+                You should see the board in a volume. We're rendering the `static_scene`, but we haven't actually attached anything to TabletopKit yet.
+                
+                @Image(source: 1-5-BoardOnly, alt: "The board in a volume")
+            }
+        }
+    }
+        
+    @Section(title: "Make Game Equipment") {
+        Everything on the table is equipment.
+        
+        @Steps {
+            @Step {
+                Create `PlayerSeat`.
+                
+                PlayerSeat conforms to `TableSeat`, and `seatPoses` is used position the seats around the edges of the table.
+                
+                @Code(name: "GameEquipment.swift", file: "2-GameEquipment-PlayerSeat.swift", previousFile: "1-GameEquipment-Board.swift")
+            }
+            
+            @Step {
+                Create `PlayerPawn`.
+                
+                `PlayerSeat` conforms to `EntityEquipment`, because it's equipment that has an associated `Entity`. Be sure to add the imports at the top.
+                
+                @Code(name: "GameEquipment.swift", file: "2-GameEquipment-PlayerPawn.swift")
+            }
+            
+            @Step {
+                Create `ConveyorTile`.
+                
+                `ConveyorTile` conforms to `Equipment`. `tiles` is an array for the XZ position, and the category (type) of tile it is, as seen in the `Conveyor_belt_assembly` scene.
+                
+                @Code(name: "GameEquipment.swift", file: "2-GameEquipment-ConveyorTile.swift")
+            }
+            
+            @Step {
+                Create `Die` and `import Spatial`
+                
+                `Die` conforms to `EntityEquipment`, because it has an attached `Entity`. It uses `TossableRepresentation` which is what gives it the behavior of how a die works in real life, and `DieState`.
+                
+                @Code(name: "GameEquipment.swift", file: "2-GameEquipment-Die.swift")
+            }
+        }
+    }
+    
+    @Section(title: "Game Renderer") {
+        Render the game equipment
+        
+        @Steps {
+            @Step {
+                Create `GameRenderer` class to render the entities in the `RealityView`.
+                
+                `loadAssets` function loads the `static_scene` and sets the parent of the entity.
+                
+                @Code(name: "GameRenderer.swift", file: "3-GameRenderer.swift")
+            }
+            
+            @Step {
+                Create `Game` class, as a container to organize all the classes for the game.
+                
+                @Code(name: "Game.swift", file: "3-Game.swift")
+            }
+            
+            @Step {
+                Use the `GameRenderer` in the `GameView`. Update `GameView` to use the `Game` object, which handles rendering the scene. 
+                
+                @Code(name: "GameView.swift", file: "3-GameView.swift", previousFile: "1-GameView.swift")
+            }
+            
+            @Step {
+                ✅ Run the project!
+                
+                You should still see the empty board in a volume. Because we've created the equipment, but haven't connected it to anything yet.
+                
+                @Image(source: 1-5-BoardOnly, alt: "The board in a volume")
+            }
+        }
+    }
+        
+    @Section(title: "Game Setup") {
+        Put everything together into an actual game.
+        
+        @Steps {
+            
+            @Step {
+                Create `GameSetup` class.
+                
+                This class will put together the equipment and `TableSetup`.
+                
+                @Code(name: "GameSetup.swift", file: "4-GameSetup.swift")
+            }
+            
+            @Step {
+                Update `Game`, by adding `TabletopGame` and `TableSetup`.
+                
+                @Code(name: "Game.swift", file: "4-Game.swift", previousFile: "3-Game.swift")
+            }
+            
+            @Step {
+                Add `PlayerSeat` to the `TableSetup`.
+                
+                Iterate through the `PlayerSeat.seatPoses` and add each seat to the `TableSetup` and the new `seats` array.
+                
+                @Code(name: "GameSetup.swift", file: "4-GameSetup-Table.swift", previousFile: "4-GameSetup.swift")
+            }
+            
+            @Step {
+                Add `Board` to the `TableSetup`.
+                
+                And make `IdentifierGenerator` which is used to add unique ids to each equipment.
+                
+                @Code(name: "GameSetup.swift", file: "4-GameSetup-Board.swift")
+            }
+            
+            @Step {
+                Add `Die` to the `TableSetup`.
+                
+                @Code(name: "GameSetup.swift", file: "4-GameSetup-Die.swift")
+            }
+            
+            @Step {
+                Add `ConveyorTile`s to the `TableSetup`.
+                
+                This involves some magic numbers.
+                
+                @Code(name: "GameSetup.swift", file: "4-GameSetup-ConveyorTile.swift")
+            }
+            
+            @Step {
+                Add `Pawn`s to the `TableSetup`.
+                
+                And create a `pawns` array to track the pawns.
+                
+                @Code(name: "GameSetup.swift", file: "4-GameSetup-Pawns.swift")
+            }
+            
+            @Step {
+                In the `Game` object claim any seat.
+                
+                The user will automatically claim an available seat.
+                
+                @Code(name: "Game.swift", file: "4-Game-ClaimSeat.swift", previousFile: "4-Game.swift")
+            }
+            
+            @Step {
+                ✅ Run the project!
+                
+                And it still looks the same...We've added everything to the `GameSetup` but we still haven't actually connected it to the `RealityView`.
+                
+                @Image(source: 1-5-BoardOnly, alt: "The board in a volume")
+            }
+        }
+    }
+    
+    @Section(title: "Game Interaction") {
+        Interact wtih the game!
+        
+        @Steps {
+            @Step {
+                Connect the `GameRenderer` to the `TabletopGame`, by setting `.addRenderDelegate`, and using `.removeRenderDelegate` in the `deinit`.
+                
+                @Code(name: "Game.swift", file: "5-Game.swift", previousFile: "4-Game-ClaimSeat.swift")
+            }
+            
+            @Step {
+                Conform GameRenderer to `TabletopGame.RenderDelegate`.
+                
+                @Code(name: "GameRenderer.swift", file: "5-GameRenderer.swift", previousFile: "3-GameRenderer.swift")
+            }
+            
+            @Step {
+                Create `GameInteraction`
+                
+                To monitor how the players interact with the game.
+                
+                @Code(name: "GameInteraction.swift", file: "5-GameInteraction.swift")
+            }
+            
+            @Step {
+                Connect the `TabletopGame` to the `RealityView` with the `.tabletopGame` modifier.
+                
+                @Code(name: "GameView.swift", file: "5-GameView.swift", previousFile: "3-GameView.swift")
+            }
+            
+            @Step {
+                Update `GameInteraction` with all the interactions that users can have with equipment
+                
+                @Code(name: "GameInteraction.swift", file: "5-GameInteraction-Update.swift", previousFile: "5-GameInteraction.swift")
+            }
+            
+            @Step {
+                Load the bots with the `GameRenderer`. Add the `cuteBots` array and create and call the `loadCuteBots` function.
+                
+                @Code(name: "GameRenderer.swift", file: "5-GameRenderer-LoadBots.swift", previousFile: "5-GameRenderer.swift")
+            }
+            
+            @Step {
+                Add other animation functions to `GameRenderer`
+                
+                @Code(name: "GameRenderer.swift", file: "5-GameRenderer-Animations.swift")
+            }
+            
+            @Step {
+                ✅ Run the project!
+                
+                We now have pawns, die, and bots! We can move the pawns onto the conveyor tile and throw the dice. (Without sound).
+                
+                @Image(source: complete-game.png, alt: "The tabletop in a volume, the board, 3 pawns and 3 robots, and die.")
+            }
+            
+            @Step {
+                Create new file `GameObserver` for observing objects that progress the gameplay when players take actions.
+                
+                @Code(name: "GameObserver.swift", file: "5-GameObserver.swift")
+            }
+            
+            @Step {
+                Connect the `GameObserver` and `Game`
+                
+                @Code(name: "Game.swift", file: "5-Game-WithObserver.swift", previousFile: "5-Game.swift")
+            }
+            
+            @Step {
+                Add a reset game function to the `Game`.
+                
+                @Code(name: "Game.swift", file: "5-Game-Reset.swift")
+            }
+            
+            @Step {
+                Create `GameToolbar`
+                
+                Call reset game with a Toolbar button
+                
+                @Code(name: "GameView.swift", file: "5-GameToolbar.swift", previousFile: "5-GameView.swift")
+            }
+            
+            @Step {
+                ✅ Run the project!
+                
+                See the `Gametoolbar` attached to the volume.
+                
+                @Image(source: reset-toolbar, alt: "The tabletop in a volume, the board, 3 pawns and 3 robots, and die. A toolbar is on the volume with a reset button.")
+            }
+        }
+    }
+    
+    @Section(title: "SharePlay") {
+        Play the game with others!
+        
+        @Steps {
+            @Step {
+                Create `GroupActivityManager`
+                
+                @Code(name: "GroupActivityManager.swift", file: "6-GroupActivityManager.swift")
+            }
+            
+            @Step {
+                Add a `SharePlay` button to the `GameToolbar` and the `GameView`.
+                
+                The `tabletopGame` handles the actions and automatically syncs them to be used with SharePlay.
+                
+                @Code(name: "GameView.swift", file: "5-GameToolbar-SharePlay.swift", previousFile: "5-GameToolbar.swift")
+            }
+            
+            @Step {
+                ✅ Run the final project!
+                
+                You can move pawns onto the conveyor tiles, and the cute robots will react to the different tiles you land on. You can throw the die and hear a sound each time.
+               
+               @Image(source: full-toolbar, alt: "The tabletop in a volume, the board, 3 pawns and 3 robots, and die. A toolbar is on the volume with a reset button.")
+            }
+        }
+    }
+}

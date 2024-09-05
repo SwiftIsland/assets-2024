@@ -1,0 +1,118 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@" : {
+
+    },
+    "%lld featured trail collections" : {
+
+    },
+    "%lld trails" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "%lld trails"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%lld trails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Could not find the requested trail." : {
+
+    },
+    "Details" : {
+
+    },
+    "Discover" : {
+
+    },
+    "Featured Locations" : {
+
+    },
+    "Featured Trail Collection" : {
+
+    },
+    "Find a featured trail collection." : {
+
+    },
+    "For You" : {
+
+    },
+    "location" : {
+
+    },
+    "Location" : {
+
+    },
+    "Name" : {
+
+    },
+    "Open Favorite Trails" : {
+
+    },
+    "Open Favorites" : {
+
+    },
+    "Opens the app and goes to your favorite trails." : {
+
+    },
+    "Pick something from the list." : {
+
+    },
+    "Region" : {
+
+    },
+    "Search for the best trails matching your interest based on complex criteria." : {
+
+    },
+    "Select a Trail" : {
+
+    },
+    "Select a Trail Collection" : {
+
+    },
+    "trail" : {
+
+    },
+    "Trail" : {
+
+    },
+    "Trail Collections" : {
+
+    },
+    "Trail Length" : {
+
+    },
+    "Trail Name" : {
+
+    },
+    "Trails" : {
+
+    },
+    "travel" : {
+
+    },
+    "Welcome!" : {
+
+    },
+    "You are signed in" : {
+
+    },
+    "You are signed out" : {
+
+    }
+  },
+  "version" : "1.0"
+}

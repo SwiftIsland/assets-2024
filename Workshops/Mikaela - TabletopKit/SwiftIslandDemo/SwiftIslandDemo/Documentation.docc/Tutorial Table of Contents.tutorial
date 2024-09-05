@@ -1,0 +1,11 @@
+@Tutorials(name: "Swift Island TabletopKit Workshop") {
+    @Intro(title: "Swift Island TabletopKit Workshop") {
+        @Image(source: complete-game.png, alt: "Project with a board and 3 robots around 3 edges, and a pawn in front of each robot.")
+    }
+    
+    @Chapter(name: "Swift  Island Workshop") {
+        @Image(source: complete-game.png, alt: "The final project, a table in a volume with 3 different colored robots, 3 pawns, and 1 die.")
+        
+        @TutorialReference(tutorial: "doc:Tutorial")
+    }
+}

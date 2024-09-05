@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "ackgen",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MartinP7r/AckGen.git",
+      "state" : {
+        "revision" : "b0510489615f2b0dfd0e44da91645d8cc28e728c",
+        "version" : "0.1.8"
+      }
+    },
+    {
+      "identity" : "defaults",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/Defaults",
+      "state" : {
+        "revision" : "38925e3cfacf3fb89a81a35b1cd44fd5a5b7e0fa",
+        "version" : "8.2.0"
+      }
+    }
+  ],
+  "version" : 2
+}
