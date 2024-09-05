@@ -1,7 +1,7 @@
 # All workshop assets
 
 ## Swift Island 2024
-Are in foldder `Workshops`.
+Are in folder `Workshops`.
 
 ## Shift Island 2024
 See the seperate PDF's in the root folder.
